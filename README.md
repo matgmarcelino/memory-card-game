@@ -33,6 +33,10 @@ Then open the URL Vite prints (usually http://localhost:5173).
 | `npm run lint`    | Lint with ESLint                          |
 | `npm run check`   | Lint and format-check with Biome          |
 
+## Deployment
+
+Every push to `main` builds the site and publishes it to GitHub Pages via [.github/workflows/deploy.yml](.github/workflows/deploy.yml). The production build uses `/memory-card-game/` as its base path (see `vite.config.js`). Change that if you rename the repo.
+
 ## Project structure
 
 ```
