@@ -1,0 +1,97 @@
+.scoreboard {
+	flex-shrink: 0;
+	width: 280px;
+	padding: 16px 20px;
+	background: var(--panel);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+}
+
+.stats {
+	display: flex;
+	gap: 44px;
+}
+
+.stat {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.stat-label {
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
+.stat-value {
+	font-size: 1.75rem;
+	font-weight: 600;
+	line-height: 1;
+	font-variant-numeric: tabular-nums;
+}
+
+.stat-value span {
+	font-size: 1rem;
+	font-weight: 400;
+	color: var(--muted);
+}
+
+.stat:last-child .stat-value {
+	color: var(--gold);
+}
+
+.pips {
+	display: flex;
+	gap: 4px;
+	margin-top: 12px;
+}
+
+.pips span {
+	flex: 1;
+	height: 5px;
+	border-radius: 3px;
+	background: var(--pip-off);
+	transition: background-color 0.25s;
+}
+
+.pips span.on {
+	background: var(--gold);
+}
+
+@media (max-width: 720px) {
+	.scoreboard {
+		width: 100%;
+	}
+
+	.stats {
+		justify-content: space-between;
+	}
+
+	.stat {
+		flex-direction: row;
+		align-items: baseline;
+		gap: 10px;
+	}
+
+	.stat-value {
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-width: 360px) {
+	.scoreboard {
+		padding: 12px 14px;
+	}
+
+	.stat-label {
+		font-size: 0.7rem;
+		letter-spacing: 0.1em;
+	}
+
+	.stat-value {
+		font-size: 1.2rem;
+	}
+}

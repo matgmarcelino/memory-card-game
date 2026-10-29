@@ -1,16 +1,50 @@
-# React + Vite
+# Champion Recall
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A memory card game using League of Legends champions. Pick each champion exactly once. Pick one you've already chosen and the round is over.
 
-Currently, two official plugins are available:
+Built with React and Vite. Champion data and art come from Riot's [Data Dragon](https://developer.riotgames.com/docs/lol#data-dragon) CDN.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## How to play
 
-## React Compiler
+- Every game draws 12 random champions.
+- Each turn shows 5 of them, and at least one is always a champion you haven't picked yet.
+- Click a champion you haven't picked to score a point. The cards reshuffle after every pick.
+- Click a champion you already picked and the round ends. You keep the same 12 champions for the next round.
+- Pick all 12 without repeating to complete a perfect round. Your best score is kept for the whole session.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting started
 
-## Expanding the ESLint configuration
+Requires Node.js 20.19+ or 22.12+.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints (usually http://localhost:5173).
+
+## Scripts
+
+| Command           | What it does                              |
+| ----------------- | ----------------------------------------- |
+| `npm run dev`     | Start the dev server with hot reload      |
+| `npm run build`   | Build for production into `dist/`         |
+| `npm run preview` | Serve the production build locally        |
+| `npm run lint`    | Lint with ESLint                          |
+| `npm run check`   | Lint and format-check with Biome          |
+
+## Project structure
+
+```
+src/
+├── api/champions.js     # Fetches champions, runs the game rules (rotation, win/lose)
+├── components/          # Header, Scoreboard, Board, Card, Notice, Toast, Footer
+├── styles/              # One .css per component (incl. mobile breakpoints)
+│   └── index.css        # Theme tokens, reset, page layout, shared .button
+├── App.jsx              # Game state, score tracking, toasts
+└── main.jsx
+```
+
+## Legal
+
+Champion Recall isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
