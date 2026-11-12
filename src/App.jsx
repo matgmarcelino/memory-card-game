@@ -27,7 +27,7 @@ export default function App() {
     const flashTimer = useRef(null);
     const toastTimer = useRef(null);
 
-    // biome-ignore lint/correctness/useExhaustiveDependencies: `attempt` changes to refetch after "Try again"
+    // `attempt` is a dependency on purpose: bumping it refetches after "Try again"
     useEffect(() => {
         let ignore = false;
         ChampionsManager.create()

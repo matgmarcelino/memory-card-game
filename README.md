@@ -2,7 +2,25 @@
 
 A memory card game using League of Legends champions. Pick each champion exactly once. Pick one you've already chosen and the round is over.
 
-Built with React and Vite. Champion data and art come from Riot's [Data Dragon](https://developer.riotgames.com/docs/lol#data-dragon) CDN.
+**Live demo:** https://matgmarcelino.github.io/memory-card-game/
+
+Champion data and art are fetched at runtime from Riot's [Data Dragon](https://developer.riotgames.com/docs/lol#data-dragon) CDN.
+
+## Features
+
+- Game rules live in a framework-free `ChampionsManager` class (private fields, async factory), kept separate from the React UI
+- Every turn is guaranteed to include at least one champion you haven't picked, so a perfect round is always possible
+- Current and best score tracking, with toasts for new bests and perfect rounds
+- Loading and error states, with a retry if the champion data fails to load
+- Responsive layout with mobile breakpoints
+- CI: every push to `main` is linted, built, and deployed to GitHub Pages
+
+## Tech stack
+
+- [React 19](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [ESLint](https://eslint.org/)
+- GitHub Actions + GitHub Pages
 
 ## How to play
 
@@ -31,7 +49,6 @@ Then open the URL Vite prints (usually http://localhost:5173).
 | `npm run build`   | Build for production into `dist/`         |
 | `npm run preview` | Serve the production build locally        |
 | `npm run lint`    | Lint with ESLint                          |
-| `npm run check`   | Lint and format-check with Biome          |
 
 ## Deployment
 
